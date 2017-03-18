@@ -142,14 +142,18 @@ answer getEmotionalSum(vector<myMap> dictionary, vector<string> text)
 	{
 		for (int j = 0; j < text.size(); j++)
 		{
-			size_t pos = text[j].find(dictionary[i].key);
-			if (pos != std::string::npos)
+			size_t pos;
+			do
 			{
-				std::cout << dictionary[i].key << "- " << text[j] << "\n";
-				text[j].erase(pos, dictionary[i].key.size() - 1);
-				result.count++;
-				result.weight += dictionary[i].value;
-			}
+				pos = text[j].find(dictionary[i].key);
+				if (pos != std::string::npos)
+				{
+					std::cout << dictionary[i].key << "- " << text[j] << "\n";
+					text[j].erase(pos, dictionary[i].key.size() - 1);
+					result.count++;
+					result.weight += dictionary[i].value;
+				}
+			} while (pos != std::string::npos);
 		}
 	}
 	cout << endl;
