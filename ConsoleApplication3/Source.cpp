@@ -121,7 +121,7 @@ vector <myMap> getDictionary(string fileName)
 			getline(s, key, '|');
 			s >> weight;
 			myMap value;
-			value.key = " " + key + " ";
+			value.key = key ;
 			value.value = stod(weight);
 			result.push_back(value);
 		}
@@ -145,11 +145,12 @@ answer getEmotionalSum(vector<myMap> dictionary, vector<string> text)
 			size_t pos;
 			do
 			{
-				pos = text[j].find(dictionary[i].key);
+				pos = text[j].find(' ' + dictionary[i].key + ' ');
 				if (pos != std::string::npos)
 				{
-					std::cout << dictionary[i].key << "- " << text[j] << "\n";
-					text[j].erase(pos, dictionary[i].key.size() - 1);
+					std::cout << dictionary[i].key << " |" << dictionary[i].value << "| " << text[j] << "\n";
+					text[j].erase(pos+1, dictionary[i].key.size());
+					text[j][pos] = '&' ;
 					result.count++;
 					result.weight += dictionary[i].value;
 				}
@@ -166,6 +167,7 @@ int main()
 	vector <string> vectorOfWords;
 	cout << "-->Input Dictionary File Name: ";
 	cin >> fileName;
+	//	asdasd	
 	mapOfWeight = getDictionary(fileName);
 	cout << "-->Input Text File Name: ";
 	cin >> fileName;
