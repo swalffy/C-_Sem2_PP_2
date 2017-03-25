@@ -166,11 +166,12 @@ int main()
 	vector<myMap> mapOfWeight;
 	vector <string> vectorOfWords;
 	cout << "-->Input Dictionary File Name: ";
-	cin >> fileName;
-	//	asdasd	
+	//cin >> fileName;
+	fileName = "testweight.txt";
 	mapOfWeight = getDictionary(fileName);
 	cout << "-->Input Text File Name: ";
-	cin >> fileName;
+	//cin >> fileName;
+	fileName = "testtext.txt";
 	vectorOfWords = getLinesFromFile(fileName);
 	answer result = getEmotionalSum(mapOfWeight, vectorOfWords);
 	cout << "==========" << endl;
