@@ -4,7 +4,7 @@ using namespace std;
 int main()
 {
 	string fileName;
-	vector<myMap> mapOfWeight;
+	vector <myMap> mapOfWeight;
 	vector <string> vectorOfWords;
 	cout << "-->Input Dictionary File Name: ";
 	//cin >> fileName;

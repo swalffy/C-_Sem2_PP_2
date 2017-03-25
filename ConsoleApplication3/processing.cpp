@@ -1,6 +1,7 @@
 #include "Header.h"
-
 using namespace std;
+
+
 string lineProcessing(string line)
 {
 	bool flag = false;
@@ -35,6 +36,7 @@ string lineProcessing(string line)
 	}
 	return line;
 }
+
 void dictionarySorting(int l, int r, vector <myMap> &input)
 {
 	int x = input[l + (r - l) / 2].key.size();
@@ -57,6 +59,7 @@ void dictionarySorting(int l, int r, vector <myMap> &input)
 	if (l < j)
 		dictionarySorting(l, j, input);
 }
+
 answer getEmotionalSum(vector<myMap> dictionary, vector<string> text)
 {
 	answer result = { 0.0,0 };
@@ -67,7 +70,7 @@ answer getEmotionalSum(vector<myMap> dictionary, vector<string> text)
 			size_t pos;
 			do
 			{
-				pos = text[j].find(' ' + dictionary[i].key + ' ');
+				pos = text[j].find(dictionary[i].key);
 				if (pos != std::string::npos)
 				{
 					std::cout << dictionary[i].key << " |" << dictionary[i].value << "| " << text[j] << "\n";

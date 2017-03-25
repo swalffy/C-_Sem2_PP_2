@@ -1,5 +1,4 @@
 #include "Header.h"
-
 using namespace std;
 
 vector <string> getTextFromFile(string fileName)
@@ -21,6 +20,7 @@ vector <string> getTextFromFile(string fileName)
 	}
 	return vectorResult;
 }
+
 vector <string> getLinesFromFile(string fileName)
 {
 	ifstream ifs;
@@ -42,6 +42,7 @@ vector <string> getLinesFromFile(string fileName)
 	}
 	return vectorResult;
 }
+
 vector <myMap> getDictionary(string fileName)
 {
 	ifstream ifs;
