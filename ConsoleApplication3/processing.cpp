@@ -1,6 +1,15 @@
 #include "Header.h"
 using namespace std;
 
+bool isSepareted(string line,int pos, string word)
+{
+	if ((pos == 0 && (line[pos + word.size()] == ' ' || line[pos + word.size()] == NULL)) ||
+		(pos != 0 && line[pos - 1] == ' ' && (line[pos + word.size()] == ' ' || line[pos + word.size()] == NULL)))
+	{
+		return true;
+	}
+	return false;
+}
 
 string lineProcessing(string line)
 {
@@ -20,13 +29,11 @@ string lineProcessing(string line)
 			flag = true;
 			continue;
 		}
-		/*
 		if (ispunct(*i) && (*i) != '\'' && (*i) != '’' && (*i) != '-')
 		{
 		flag = false;
 		*i = ' ';
 		}
-		*/
 		if (isprint(*i))
 		{
 			flag = false;
@@ -68,17 +75,20 @@ answer getEmotionalSum(vector<myMap> dictionary, vector<string> text)
 		for (int j = 0; j < text.size(); j++)
 		{
 			size_t pos;
+			pos = text[j].find(dictionary[i].key);
 			do
 			{
-				pos = text[j].find(dictionary[i].key);
-				if (pos != std::string::npos)
+				
+				if (pos != std::string::npos && isSepareted(text[j],pos,dictionary[i].key))
 				{
-					std::cout << dictionary[i].key << " |" << dictionary[i].value << "| " << text[j] << "\n";
-					text[j].erase(pos + 1, dictionary[i].key.size());
-					text[j][pos] = '&';
+					cout << dictionary[i].key << " [" << dictionary[i].value << "] " << text[j] << "\n";
+					text[j].erase(pos+1 , dictionary[i].key.size());
+					text[j][pos] = ' ';
 					result.count++;
 					result.weight += dictionary[i].value;
+					
 				}
+				pos = text[j].find(dictionary[i].key, pos+1);
 			} while (pos != std::string::npos);
 		}
 	}

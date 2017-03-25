@@ -7,13 +7,13 @@ int main()
 	vector <myMap> mapOfWeight;
 	vector <string> vectorOfWords;
 	cout << "-->Input Dictionary File Name: ";
-	//cin >> fileName;
-	fileName = "testweight";
+	cin >> fileName;
+	//fileName = "testweight";
 	fileName += ".txt";
 	mapOfWeight = getDictionary(fileName);
 	cout << "-->Input Text File Name: ";
-	//cin >> fileName;
-	fileName = "testtext";
+	cin >> fileName;
+	//fileName = "testtext";
 	fileName += ".txt";
 	cout << endl << endl;
 	vectorOfWords = getLinesFromFile(fileName);

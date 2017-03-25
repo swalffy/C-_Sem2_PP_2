@@ -34,7 +34,8 @@ vector <myMap> getDictionary(string);
 
 #ifndef processingFunctions
 #define processingFunctions
+bool isSepareted(string, int, string);
 string lineProcessing(string);
 void dictionarySorting(int, int, vector <myMap> &);
-answer getEmotionalSum(vector<myMap> dictionary, vector<string>);
+answer getEmotionalSum(vector<myMap>, vector<string>);
 #endif 
