@@ -1,3 +1,0 @@
-big dog,0.1
-dog big,0.2
-dog,0.3asdads

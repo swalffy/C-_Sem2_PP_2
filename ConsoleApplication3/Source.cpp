@@ -19,6 +19,7 @@ string lineProcessing(string line)
 {
 	for (std::string::iterator i = line.begin(); i != line.end(); ++i)
 	{
+
 		if (ispunct(*i) && (*i) != '\'' && (*i) != '’' && (*i) != '-')
 		{
 			*i = ' ';
@@ -27,6 +28,7 @@ string lineProcessing(string line)
 		{
 			*i = char(tolower(*i));
 		}
+		i--;
 	}
 	return line;
 }
@@ -82,9 +84,9 @@ vector <string> getLinesFromFile(string fileName)
 		{
 			string temp;
 			getline(ifs, temp);
-			temp = lineProcessing(temp);
 			if (temp != "" && temp != " ")
 			{
+				temp = lineProcessing(temp);
 				vectorResult.push_back(temp);
 			}
 		}
@@ -167,14 +169,16 @@ int main()
 	vector <string> vectorOfWords;
 	cout << "-->Input Dictionary File Name: ";
 	//cin >> fileName;
-	fileName = "testweight.txt";
+	fileName = "testweight";
+	fileName += ".txt";
 	mapOfWeight = getDictionary(fileName);
 	cout << "-->Input Text File Name: ";
 	//cin >> fileName;
-	fileName = "testtext.txt";
+	fileName = "testtext";
+	fileName += ".txt";
+	cout << endl << endl;
 	vectorOfWords = getLinesFromFile(fileName);
 	answer result = getEmotionalSum(mapOfWeight, vectorOfWords);
-	cout << "==========" << endl;
 	cout << "Total sum: " << result.weight << endl;
 	cout << "Average sum: " << result.weight / result.count << endl;
 	system("pause");
