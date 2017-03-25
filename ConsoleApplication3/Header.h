@@ -9,8 +9,8 @@
 #endif
 
 using namespace std;
-#ifndef structs
-#define structs
+#ifndef structures
+#define structures
 struct myMap
 {
 	string key;
@@ -24,17 +24,17 @@ struct answer
 
 #endif
 
-#ifndef inputLib
-#define inputLib
+#ifndef inputFunctions
+#define inputFunctions
 
-vector <string> getTextFromFile(string fileName);
-vector <string> getLinesFromFile(string fileName);
-vector <myMap> getDictionary(string fileName);
+vector <string> getTextFromFile(string);
+vector <string> getLinesFromFile(string);
+vector <myMap> getDictionary(string);
 #endif
 
 #ifndef processingFunctions
 #define processingFunctions
-string lineProcessing(string line);
-void dictionarySorting(int l, int r, vector <myMap> &input);
-answer getEmotionalSum(vector<myMap> dictionary, vector<string> text);
+string lineProcessing(string);
+void dictionarySorting(int, int, vector <myMap> &);
+answer getEmotionalSum(vector<myMap> dictionary, vector<string>);
 #endif 

@@ -1,12 +1,3 @@
-#ifndef libs
-#define libs
-#include <iostream>
-#include <iomanip>
-#include <vector>
-#include <fstream>
-#include <string>
-#include <sstream>
-#endif
 #include "Header.h"
 
 using namespace std;
