@@ -81,7 +81,7 @@ answer getEmotionalSum(vector<myMap> dictionary, vector<string> text)
 				
 				if (pos != std::string::npos && isSepareted(text[j],pos,dictionary[i].key))
 				{
-					cout << dictionary[i].key << " [" << dictionary[i].value << "] " << text[j] << "\n";
+					cout <<left<< setw(15)<< dictionary[i].key <<setw(8) <<dictionary[i].value << text[j] << "\n";
 					text[j].erase(pos+1 , dictionary[i].key.size());
 					text[j][pos] = ' ';
 					result.count++;
