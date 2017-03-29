@@ -3,8 +3,8 @@ using namespace std;
 
 bool isSepareted(string line,int pos, string word)
 {
-	if ((pos == 0 && (line[pos + word.size()] == ' ' || line[pos + word.size()] == NULL)) ||
-		(pos != 0 && line[pos - 1] == ' ' && (line[pos + word.size()] == ' ' || line[pos + word.size()] == NULL)))
+	if ((pos == 0 && (line[pos + word.size()] == ' ' || line[pos + word.size()] == NULL || line[pos + word.size()] == '|')) ||
+		(pos != 0 && line[pos - 1] == ' ' && (line[pos + word.size()] == ' ' || line[pos + word.size()] == NULL || line[pos + word.size()] == '|' )))
 	{
 		return true;
 	}
@@ -15,7 +15,7 @@ string lineProcessing(string line)
 {
 	bool flag = false;
 	int curPos = -1;
-	for (std::string::iterator i = line.begin(); i != line.end(); ++i)
+	for (string::iterator i = line.begin(); i != line.end(); ++i)
 	{
 		curPos++;
 		if ((*i) == ' ')
@@ -32,7 +32,7 @@ string lineProcessing(string line)
 		if (ispunct(*i) && (*i) != '\'' && (*i) != '’' && (*i) != '-')
 		{
 		flag = false;
-		*i = ' ';
+		*i = '|';
 		}
 		if (isprint(*i))
 		{
@@ -79,17 +79,17 @@ answer getEmotionalSum(vector<myMap> dictionary, vector<string> text)
 			do
 			{
 				
-				if (pos != std::string::npos && isSepareted(text[j],pos,dictionary[i].key))
+				if (pos != string::npos && isSepareted(text[j],pos,dictionary[i].key))
 				{
 					cout <<left<< setw(15)<< dictionary[i].key <<setw(8) <<dictionary[i].value << text[j] << "\n";
-					text[j].erase(pos+1 , dictionary[i].key.size());
-					text[j][pos] = ' ';
+					text[j].erase(pos , dictionary[i].key.size());
+					//text[j][pos] = ' ';
 					result.count++;
 					result.weight += dictionary[i].value;
 					
 				}
 				pos = text[j].find(dictionary[i].key, pos+1);
-			} while (pos != std::string::npos);
+			} while (pos != string::npos);
 		}
 	}
 	cout << endl;

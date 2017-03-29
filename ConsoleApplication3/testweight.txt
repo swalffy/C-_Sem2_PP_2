@@ -1,3 +1,4 @@
-big dog,0.1
+big dogi,0.1
 dog big,0.2
-dog,0.3
+big,0.3
+0,0.5

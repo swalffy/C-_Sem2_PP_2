@@ -38,14 +38,15 @@ public:
 		str = input;
 		len = strlen(input) + 1;
 	}
-	line mergeLine(line& a, line& b)
+	line& mergeLine(line& a, line& b)
 	{
-		a.len = len + b.len - 1;
-		char *temp = new char[len];;
-		strcpy(temp, str);
+		a.len += b.len;
+		char *temp = new char[a.len];
+		strcpy(temp, a.str);
 		strcat(temp, b.str);
 		line result(temp);
 		delete[]temp;
+		cout << result << endl;
 		return result;
 	}
 	line& operator+ (line& x)
