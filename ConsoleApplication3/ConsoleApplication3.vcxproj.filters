@@ -27,6 +27,9 @@
     <ClCompile Include="processing.cpp">
       <Filter>Custom Library</Filter>
     </ClCompile>
+    <ClCompile Include="MyString.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Text Include="testweight.txt">
@@ -38,6 +41,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Header.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="MyString.h">
       <Filter>Headers</Filter>
     </ClInclude>
   </ItemGroup>

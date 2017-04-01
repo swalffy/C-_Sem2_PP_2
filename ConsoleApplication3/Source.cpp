@@ -1,4 +1,5 @@
 #include "Header.h"
+#include "MyString.h"
 using namespace std;
 
 int main()
@@ -8,7 +9,6 @@ int main()
 	vector <string> vectorOfWords;
 	cout << "-->Input Dictionary File Name: ";
 	cin >> fileName;
-
 	fileName += ".txt";
 	mapOfWeight = getDictionary(fileName);
 	cout << "-->Input Text File Name: ";
